@@ -1,37 +1,30 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
-      <swiper-slide v-for="item of swiperList" :key="item.id">
-        <img :src="item.url" alt class="swiper-img">
+    <swiper :options="swiperOption" v-if="swiperShow">
+      <swiper-slide v-for="item of list" :key="item.id">
+        <img :src="item.imgUrl" alt class="swiper-img">
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
 </template>
 <script>
-import bannerImg1 from '@/assets/images/1.jpg'
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true
-      },
-      swiperList: [
-        {
-          id: '0001',
-          url: bannerImg1
-        },
-        {
-          id: '0002',
-          url: require('@/assets/images/2.jpg')
-        },
-        {
-          id: '0003',
-          url: require('../../../assets/images/3.jpg')
-        }
-      ]
+      }
+    }
+  },
+  computed: {
+    swiperShow: function () {
+      return this.list.length
     }
   }
 }
@@ -45,7 +38,7 @@ export default {
   overflow: hidden;
   width: 100%;
   height: 0;
-  padding-bottom: 26.67%;
+  padding-bottom: 31.25%;
   background: #eee;
 
   .swiper-img {

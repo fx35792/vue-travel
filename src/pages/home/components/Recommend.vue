@@ -2,7 +2,7 @@
   <div>
     <div class="title">热门推荐</div>
     <ul class="item-list">
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl" alt="">
         </div>
@@ -18,25 +18,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_200x200_50323152.jpg',
-        title: '北京世界园艺博览会北京世界园艺博览会北京世界园艺博览会',
-        desc: '572条评论'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_200x200_50323152.jpg',
-        title: '北京世界园艺博览会北京世界园艺博览会北京世界园艺博览会',
-        desc: '572条评论'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_200x200_50323152.jpg',
-        title: '北京世界园艺博览会北京世界园艺博览会北京世界园艺博览会',
-        desc: '572条评论'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
