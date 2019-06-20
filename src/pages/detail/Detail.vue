@@ -37,7 +37,6 @@ export default {
       res = res.data
       if (res.ret && res.data) {
         res = res.data
-        console.log(res)
         this.sightName = res.sightName
         this.bannerImg = res.bannerImg
         this.gallaryImgs = res.gallaryImgs
