@@ -25,7 +25,6 @@ export default {
   methods: {
     handleScroll () {
       const top = document.documentElement.scrollTop
-      console.log('top', top)
       if (top > 60) {
         let opacity = top / 140
         opacity = opacity > 1 ? 1 : opacity
@@ -50,7 +49,7 @@ export default {
 
 .header-abs {
   position: absolute;
-  z-index: 999;
+  z-index: 2;
   top: 0.2rem;
   left: 0.2rem;
   width: 0.8rem;

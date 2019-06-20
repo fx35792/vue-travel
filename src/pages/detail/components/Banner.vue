@@ -1,19 +1,16 @@
 <template>
   <div>
     <div class="banner" @click="handleClickBanner">
-      <img
-        src="https://img1.qunarzz.com/vs_ceph_vs_tts/559a05d5-3de7-4296-8d9d-c525259f38a8.jpg_r_640x420x90_2577f661.jpg"
-        class="banner-img"
-      >
+      <img :src="bannerImg" class="banner-img">
       <div class="banner-info">
-        <div class="banner-title">产品编号 639625298</div>
+        <div class="banner-title">{{sightName}}</div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe653;</span>
           39
         </div>
       </div>
     </div>
-    <common-gallery :imgs="bannerImgs" v-show="galleryStatus" @close="handleClickClose"></common-gallery>
+    <common-gallery :imgs="gallaryImgs" v-show="galleryStatus" @close="handleClickClose"></common-gallery>
   </div>
 </template>
 
@@ -21,13 +18,14 @@
 import CommonGallery from 'common/gallery/Gallery'
 export default {
   name: 'DetailBanner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data () {
     return {
-      galleryStatus: false,
-      bannerImgs: [
-        'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_r_800x800_6edd8174.jpg',
-        'http://img1.qunarzz.com/sight/p55/201211/04/fbcab3e5d6479ce893835fbb.jpg_r_800x800_6360f514.jpg'
-      ]
+      galleryStatus: false
     }
   },
   methods: {
